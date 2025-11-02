@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 import PriceProductList from './PriceProductList';
 import '../css/PriceProduct.css';
 
@@ -10,7 +10,7 @@ const PriceProductsPage = () => {
   const [priceHistory, setPriceHistory] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/priceproducts/byproduct/${productId}`)
+    api.get(`/api/priceproducts/byproduct/${productId}`)
       .then(response => {
         setPriceProducts(response.data);
       })
@@ -18,7 +18,7 @@ const PriceProductsPage = () => {
         console.error('Error fetching price products:', error);
       });
 
-    axios.get(`http://localhost:8080/api/priceHistory/byProductId/${productId}`)
+    api.get(`/api/priceHistory/byProductId/${productId}`)
       .then(response => {
         setPriceHistory(response.data);
       })

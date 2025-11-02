@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import { Button } from 'primereact/button';
 import { ProgressSpinner } from 'primereact/progressspinner';
@@ -42,10 +42,10 @@ const Scraping = () => {
                 params: { baseUrl: url }
             };
 
-            const categoryResponse = await axios.get(`http://localhost:8080/api/productcategories/${category}`, config);
+            const categoryResponse = await api.get(`/api/productcategories/${category}`, config);
             const categoryData = categoryResponse.data;
 
-            const response = await axios.post(`http://localhost:8080/api/webscraping/scrape`, categoryData, config);
+            const response = await api.post(`/api/webscraping/scrape`, categoryData, config);
 
             toast.current.show({ severity: 'success', summary: 'Éxito', detail: 'Scraping realizado correctamente', life: 5000 });
         } catch (error) {
@@ -70,10 +70,10 @@ const Scraping = () => {
 
             for (let site of categoryData) {
                 const { url, category } = site;
-                const categoryResponse = await axios.get(`http://localhost:8080/api/productcategories/${category}`, config);
+                const categoryResponse = await api.get(`/api/productcategories/${category}`, config);
                 const categoryData = categoryResponse.data;
 
-                await axios.post(`http://localhost:8080/api/webscraping/scrape`, categoryData, {
+                await api.post(`/api/webscraping/scrape`, categoryData, {
                     ...config,
                     params: { baseUrl: url }
                 });
@@ -104,10 +104,10 @@ const Scraping = () => {
                 const categoryData = scrapingData[categoryKey];
                 for (let site of categoryData) {
                     const { url, category } = site;
-                    const categoryResponse = await axios.get(`http://localhost:8080/api/productcategories/${category}`, config);
+                    const categoryResponse = await api.get(`/api/productcategories/${category}`, config);
                     const categoryData = categoryResponse.data;
 
-                    await axios.post(`http://localhost:8080/api/webscraping/scrape`, categoryData, {
+                    await api.post(`/api/webscraping/scrape`, categoryData, {
                         ...config,
                         params: { baseUrl: url }
                     });

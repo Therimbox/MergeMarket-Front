@@ -7,6 +7,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node / Vite / React
+node_modules/
+dist/
+*.log
+/.idea/
+/.vscode/
+.DS_Store
+
+# Sistema operativo
+Thumbs.db
+
+# Archivos de configuración de entorno
+.env
+
+# Otros
+*.swp
+
 node_modules
 dist
 dist-ssr

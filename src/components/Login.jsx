@@ -1,7 +1,7 @@
 // Login.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 import '../css/LoginRegister.css';
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:8080/api/auth/login`, {
+            const response = await api.post(`/api/auth/login`, {
                 username,
                 password
             });

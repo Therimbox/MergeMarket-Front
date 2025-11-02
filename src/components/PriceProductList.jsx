@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PriceProduct from './PriceProduct';
 import { HiOutlineBell, HiMiniBellAlert } from "react-icons/hi2";
-import axios from 'axios';
+import api from '../api';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import '../css/PriceProduct.css';
 
@@ -22,9 +22,9 @@ const PriceProductList = ({ priceProducts, categoryId, productId, priceHistory }
                         headers: { Authorization: `Bearer ${token}` }
                     };
 
-                    const userResponse = await axios.get(`http://localhost:8080/api/users/user`, config);
+                    const userResponse = await api.get(`/api/users/user`, config);
                     const userId = userResponse.data.id;
-                    const trackingResponse = await axios.get(`http://localhost:8080/api/users/${userId}/isTracking/${productId}`, config);
+                    const trackingResponse = await api.get(`/api/users/${userId}/isTracking/${productId}`, config);
                     
                     setIsTracking(trackingResponse.data);
                 }
@@ -44,13 +44,13 @@ const PriceProductList = ({ priceProducts, categoryId, productId, priceHistory }
                     headers: { Authorization: `Bearer ${token}` }
                 };
 
-                const userResponse = await axios.get(`http://localhost:8080/api/users/user`, config);
+                const userResponse = await api.get(`/api/users/user`, config);
                 const userId = userResponse.data.id;
 
                 if (isTracking) {
-                    await axios.delete(`http://localhost:8080/api/users/${userId}/deleteTrack/${productId}`, config);
+                    await api.delete(`/api/users/${userId}/deleteTrack/${productId}`, config);
                 } else {
-                    await axios.post(`http://localhost:8080/api/users/${userId}/addTrack/${productId}`, config);
+                    await api.post(`/api/users/${userId}/addTrack/${productId}`, {}, config);
                 }
                 setIsTracking(!isTracking);
             }

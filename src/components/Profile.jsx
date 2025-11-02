@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 import '../css/Profile.css';
 import ProductList from './ProductList';
 
@@ -22,10 +22,10 @@ const Profile = () => {
                     headers: { Authorization: `Bearer ${token}` }
                 };
 
-                const response = await axios.get(`http://localhost:8080/api/users/user`, config);
+                const response = await api.get(`/api/users/user`, config);
                 setUser(response.data);
 
-                const trackedProductsResponse = await axios.get(`http://localhost:8080/api/users/${response.data.id}/track`, config);
+                const trackedProductsResponse = await api.get(`/api/users/${response.data.id}/track`, config);
                 setTrackedProducts(trackedProductsResponse.data);
 
                 setIsLoading(false);

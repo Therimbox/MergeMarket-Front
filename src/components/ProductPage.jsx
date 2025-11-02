@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 import ProductList from './ProductList';
 import '../css/Product.css';
 import '../css/Search.css';
@@ -16,7 +16,7 @@ const ProductPage = () => {
     const [showAmdChipsets, setShowAmdChipsets] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/products/bycategory/${categoryId}`)
+        api.get(`/api/products/bycategory/${categoryId}`)
             .then(response => {
                 setProducts(response.data);
             })
