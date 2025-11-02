@@ -1,0 +1,64 @@
+/* Estructura principal de la aplicación */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Estilos de tipografía */
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  background-color: #f0a500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d48800;
+}
+
+/* Clase row para organizar elementos en una fila */
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en otra fila si es necesario */
+    justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 10px; /* Añade un espacio entre los elementos (ajusta según sea necesario) */
+    margin-bottom: 20px; /* Margen inferior para separar las filas */
+}
+
+.centered-button {
+  margin: 0 auto; /* Centra el botón horizontalmente */
+}
+
+/* Ajuste de responsividad */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 10px;
+  }
+}

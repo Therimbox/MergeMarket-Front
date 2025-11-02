@@ -1,0 +1,62 @@
+/* Sección principal del perfil, dentro del content-wrapper */
+.profile-container {
+    text-align: center;
+}
+
+.profile-container h2, .profile-container h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Información del perfil del usuario */
+.profile-container p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Sección de administración */
+.admin-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.admin-section h3 {
+    font-size: 1.3rem;
+    color: #d48800;
+    margin-bottom: 15px;
+}
+
+.admin-section button {
+    background-color: #f0a500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-section button:hover {
+    background-color: #d48800;
+}
+
+/* Estilos para los productos en seguimiento */
+.product-list {
+    margin-top: 20px;
+}
+
+.product-list-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* Enlace clickable */
+.clickable {
+    text-decoration: none;
+    color: white;
+}

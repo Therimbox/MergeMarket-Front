@@ -1,0 +1,140 @@
+/* Lista de productos */
+.price-product-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Añadimos un espacio uniforme entre los productos */
+}
+
+.price-product-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;;
+}
+
+.price-product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo del h3 (nombre de la tienda o web) */
+.price-product h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Estilo del h2 (nombre del producto) */
+.price-product h2 {
+    font-size: 1.6rem;  /* Tamaño de fuente mayor para destacar */
+    font-weight: 600;  /* Un peso menor para diferenciarlo del h3 */
+    color: #555;  /* Un color ligeramente más suave */
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: capitalize;  /* Capitaliza cada palabra para un aspecto más limpio */
+    letter-spacing: 0.5px;  /* Espaciado entre letras para mejorar la legibilidad */
+    padding-bottom: 5px;  /* Espacio para la línea decorativa */
+}
+
+.price-product p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.price-product img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.clickeable {
+    text-decoration: none;
+    color: initial;
+}
+
+.clickeable:hover {
+    text-decoration: none;
+    color: #f0a500; /* Color de hover en enlaces */
+}
+
+/* Icono de tracking */
+.tracking-icon {
+    font-size: 24px;
+    color: #f0a500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.tracking-icon:hover {
+    color: #d48800;
+}
+
+/* Botón cargar más */
+button {
+    background-color: #f0a500;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #d48800;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centrado del encabezado del producto */
+.product-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-header img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Contenedor principal de la lista de productos y la gráfica */
+.product-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Espacio entre la lista de productos y la gráfica */
+}
+
+/* Lista de productos (40% del ancho) */
+.product-list {
+    flex: 0 0 50%; /* Esto hace que el contenedor ocupe el 40% del espacio */
+}
+
+/* Gráfico de precios (60% del ancho) */
+.price-chart {
+    flex: 0 0 50%; /* Esto hace que el contenedor ocupe el 60% del espacio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+

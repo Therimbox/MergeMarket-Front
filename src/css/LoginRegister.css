@@ -1,0 +1,90 @@
+/* Contenedor principal para Login/Register */
+.login-container, .register-container {
+    max-width: 400px;  /* Más espacio para que sea más cómodo en pantallas grandes */
+    margin: 50px auto; /* Centramos y añadimos margen superior */
+    padding: 30px;
+    background-color: #ffffff;  /* Fondo blanco */
+    border-radius: 10px;  /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    text-align: center;
+}
+
+/* Encabezados del formulario */
+.login-container h2, .register-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Grupos de inputs */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;  /* Alineamos el texto del label a la izquierda */
+}
+
+/* Etiquetas de los campos */
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Campos de texto y contraseñas */
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Efecto al hacer focus */
+.input-group input:focus {
+    border-color: #f0a500;  /* Color de foco */
+    outline: none;
+}
+
+/* Botón de submit */
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f0a500;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+.submit-button:hover {
+    background-color: #d48800;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mensajes de error */
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+/* Enlace al formulario opuesto (login/register) */
+.login-container p, .register-container p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login-container p a, .register-container p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container p a:hover, .register-container p a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,58 @@
+/* Estilo del buscador */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #f0a500;
+    box-shadow: 0 4px 8px rgba(240, 165, 0, 0.2); /* Sombra suave al hacer focus */
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+/* Estilo de los filtros */
+.filters-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    background-color: #f0a500;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button:hover {
+    background-color: #d48800;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.filter-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.4);
+}
