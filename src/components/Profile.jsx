@@ -56,6 +56,24 @@ const Profile = () => {
                             <Link to={`/scraping`} className='clickable'>
                                 <button>Go to Scraping Tools</button>
                             </Link>
+                            <button
+                                onClick={async () => {
+                                    const categoryId = 2;
+                                    try {
+                                        const token = localStorage.getItem('token');
+                                        const config = {
+                                            headers: { Authorization: `Bearer ${token}` },
+                                        };
+                                        await api.post(`/api/admin/reanalyze/${categoryId}`, {}, config);
+                                        alert('Reanalysis for GPU category completed successfully.');
+                                    } catch (error) {
+                                        console.error('Error during reanalysis:', error);
+                                        alert('An error occurred during reanalysis.');
+                                    }
+                                }}
+                            >
+                                Reanalyze GPU PriceProducts
+                            </button>
                         </div>
                     )}
                     <h3>Productos en seguimiento</h3>

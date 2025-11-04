@@ -97,7 +97,7 @@ const PriceProductList = ({ priceProducts, categoryId, productId, priceHistory }
             <div className="product-content">
                 <div className="product-list">
                     <div className="price-product-items">
-                        {priceProducts.slice(0, visibleProducts).map((priceProduct, index) => (
+                        {priceProducts.slice(0, productName.toLowerCase() === 'otro' ? priceProducts.length : visibleProducts).map((priceProduct, index) => (
                             <div className="price-product-item" key={index}>
                                 <PriceProduct
                                     name={priceProduct.name}
@@ -110,7 +110,7 @@ const PriceProductList = ({ priceProducts, categoryId, productId, priceHistory }
                             </div>
                         ))}
                     </div>
-                    {visibleProducts < priceProducts.length && (
+                    {visibleProducts < priceProducts.length && productName.toLowerCase() !== 'otro' && (
                         <div className="row">
                             <button class="centered-button" onClick={loadMoreProducts}>Cargar más resultados</button>
                         </div>
