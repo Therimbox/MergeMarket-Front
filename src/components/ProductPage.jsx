@@ -46,10 +46,20 @@ const ProductPage = () => {
     // Funciones para desplegar/ocultar chipsets
     const toggleIntelChipsets = () => {
         setShowIntelChipsets(!showIntelChipsets);
+        if (!showIntelChipsets) {
+            setShowAmdChipsets(false); // Ocultar AMD si Intel se despliega
+        }
     };
 
     const toggleAmdChipsets = () => {
         setShowAmdChipsets(!showAmdChipsets);
+        if (!showAmdChipsets) {
+            setShowIntelChipsets(false); // Ocultar Intel si AMD se despliega
+        }
+    };
+
+    const getButtonClass = (isActive) => {
+        return `filter-button ${isActive ? 'active' : ''}`;
     };
 
     const handleSortOrder = (order) => {
@@ -97,10 +107,10 @@ const ProductPage = () => {
                 <div className="filters-container">
                     {/* Botones para mostrar Intel y AMD */}
                     <div className="row">
-                        <button className="filter-button" onClick={toggleIntelChipsets}>
+                        <button className={getButtonClass(showIntelChipsets)} onClick={toggleIntelChipsets}>
                             Intel
                         </button>
-                        <button className="filter-button" onClick={toggleAmdChipsets}>
+                        <button className={getButtonClass(showAmdChipsets)} onClick={toggleAmdChipsets}>
                             AMD
                         </button>
                     </div>
@@ -119,26 +129,150 @@ const ProductPage = () => {
             {/* Chipsets Intel desplegables debajo de los botones */}
             {showIntelChipsets && (
                 <div className="filters-container">
-                    <button className="filter-button" onClick={() => handleBrandFilter('H510')}>H510</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('H610')}>H610</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('H670')}>H670</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('Z490')}>Z490</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('Z590')}>Z590</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('Z690')}>Z690</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('Z790')}>Z790</button>
+                    <button
+                        className={getButtonClass(searchTerm === 'H510')}
+                        onClick={() => handleBrandFilter('H510')}
+                    >
+                        H510
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'H610')}
+                        onClick={() => handleBrandFilter('H610')}
+                    >
+                        H610
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'H810')}
+                        onClick={() => handleBrandFilter('H810')}
+                    >
+                        H810
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'H670')}
+                        onClick={() => handleBrandFilter('H670')}
+                    >
+                        H670
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'H770')}
+                        onClick={() => handleBrandFilter('H770')}
+                    >
+                        H770
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'B860')}
+                        onClick={() => handleBrandFilter('B860')}
+                    >
+                        B860
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'B760')}
+                        onClick={() => handleBrandFilter('B760')}
+                    >
+                        B760
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'Z490')}
+                        onClick={() => handleBrandFilter('Z490')}
+                    >
+                        Z490
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'Z590')}
+                        onClick={() => handleBrandFilter('Z590')}
+                    >
+                        Z590
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'Z690')}
+                        onClick={() => handleBrandFilter('Z690')}
+                    >
+                        Z690
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'Z790')}
+                        onClick={() => handleBrandFilter('Z790')}
+                    >
+                        Z790
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'Z890')}
+                        onClick={() => handleBrandFilter('Z890')}
+                    >
+                        Z890
+                    </button>
                 </div>
             )}
 
             {/* Chipsets AMD desplegables debajo de los botones */}
             {showAmdChipsets && (
                 <div className="filters-container">
-                    <button className="filter-button" onClick={() => handleBrandFilter('A320')}>A320</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('A520')}>A520</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('B450')}>B450</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('B550')}>B550</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('B650')}>B650</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('X570')}>X570</button>
-                    <button className="filter-button" onClick={() => handleBrandFilter('X670')}>X670</button>
+                    <button
+                        className={getButtonClass(searchTerm === 'A320')}
+                        onClick={() => handleBrandFilter('A320')}
+                    >
+                        A320
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'A520')}
+                        onClick={() => handleBrandFilter('A520')}
+                    >
+                        A520
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'A620')}
+                        onClick={() => handleBrandFilter('A620')}
+                    >
+                        A620
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'B450')}
+                        onClick={() => handleBrandFilter('B450')}
+                    >
+                        B450
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'B550')}
+                        onClick={() => handleBrandFilter('B550')}
+                    >
+                        B550
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'B650')}
+                        onClick={() => handleBrandFilter('B650')}
+                    >
+                        B650
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'B840')}
+                        onClick={() => handleBrandFilter('B840')}
+                    >
+                        B840
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'B850')}
+                        onClick={() => handleBrandFilter('B850')}
+                    >
+                        B850
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'X570')}
+                        onClick={() => handleBrandFilter('X570')}
+                    >
+                        X570
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'X670')}
+                        onClick={() => handleBrandFilter('X670')}
+                    >
+                        X670
+                    </button>
+                    <button
+                        className={getButtonClass(searchTerm === 'X870')}
+                        onClick={() => handleBrandFilter('X870')}
+                    >
+                        X870
+                    </button>
                 </div>
             )}
 

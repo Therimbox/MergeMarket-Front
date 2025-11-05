@@ -56,3 +56,9 @@
     outline: none;
     box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.4);
 }
+
+.filter-button.active {
+    background-color: #d48800; /* Un tono más oscuro del original */
+    color: white;
+    border: 1px solid #a66a00; /* Borde ligeramente más oscuro */
+}
