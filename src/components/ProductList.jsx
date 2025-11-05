@@ -5,7 +5,7 @@ import '../css/Product.css';
 const ProductList = ({ products }) => {
     return (
         <div className="product-container">
-            {products.filter(product => product.price > 0).map(product => (
+            {products.filter(product => product.price > 0 && product.priceProducts && product.priceProducts.length > 0).map(product => (
                 <Product
                     key={product.idProduct}
                     productId={product.idProduct}
