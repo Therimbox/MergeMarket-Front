@@ -123,7 +123,7 @@ const PriceProductList = ({ priceProducts, categoryId, productId, priceHistory }
                         <LineChart width={400} height={300} data={priceHistory}>
                             <XAxis dataKey="timestamp" tickFormatter={formatDate} />
                             <YAxis />
-                            <Tooltip />
+                            <Tooltip formatter={(value, name) => [value, name]} labelFormatter={(label) => formatDate(label)} />
                             <Legend />
                             <Line type="monotone" dataKey="price" stroke="#8884d8" />
                         </LineChart>
