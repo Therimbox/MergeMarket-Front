@@ -10,6 +10,7 @@ const ProductPage = () => {
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterByBrand, setFilterByBrand] = useState(null);
+    const [sortOrder, setSortOrder] = useState(null); // Estado para el orden de los precios
 
     // Estados para controlar la visibilidad de los chipsets
     const [showIntelChipsets, setShowIntelChipsets] = useState(false);
@@ -51,9 +52,20 @@ const ProductPage = () => {
         setShowAmdChipsets(!showAmdChipsets);
     };
 
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const handleSortOrder = (order) => {
+        setSortOrder(order);
+    };
+
+    const filteredAndSortedProducts = [...products]
+        .filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .sort((a, b) => {
+            if (sortOrder === 'asc') {
+                return a.price - b.price;
+            } else if (sortOrder === 'desc') {
+                return b.price - a.price;
+            }
+            return 0;
+        });
 
     return (
         <div>
@@ -68,6 +80,16 @@ const ProductPage = () => {
                     onChange={handleSearchChange}
                     className="search-input"
                 />
+            </div>
+
+            {/* Filtros de ordenación */}
+            <div className="filters-container">
+                <button className="filter-button" onClick={() => handleSortOrder('asc')}>
+                    Ordenar por precio: Ascendente
+                </button>
+                <button className="filter-button" onClick={() => handleSortOrder('desc')}>
+                    Ordenar por precio: Descendente
+                </button>
             </div>
 
             {/* Filtros específicos para la categoría 3: Placas Base */}
@@ -120,8 +142,8 @@ const ProductPage = () => {
                 </div>
             )}
 
-            {/* Lista de productos filtrados */}
-            <ProductList products={filteredProducts} />
+            {/* Lista de productos filtrados y ordenados */}
+            <ProductList products={filteredAndSortedProducts} />
         </div>
     );
 };
