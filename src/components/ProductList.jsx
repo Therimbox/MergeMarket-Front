@@ -2,10 +2,10 @@ import React from 'react';
 import Product from './Product';
 import '../css/Product.css';
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, user }) => {
     return (
         <div className="product-container">
-            {products.filter(product => product.price > 0 && product.priceProducts && product.priceProducts.length > 0).map(product => (
+            {products.filter(product => product.price > 0 && (product.name !== 'otro' || user?.role === 'admin')).map(product => (
                 <Product
                     key={product.idProduct}
                     productId={product.idProduct}
