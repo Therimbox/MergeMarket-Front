@@ -60,3 +60,39 @@ button:focus-visible {
   outline: 3px solid #005fa3;
   outline-offset: 2px;
 }
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+  :root {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  button {
+    font-size: 0.95rem;
+    padding: 9px 18px;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+  
+  body {
+    min-width: 280px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

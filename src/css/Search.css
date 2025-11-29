@@ -33,6 +33,7 @@
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .filter-button {
@@ -61,4 +62,42 @@
     background-color: #d48800; /* Un tono más oscuro del original */
     color: white;
     border: 1px solid #a66a00; /* Borde ligeramente más oscuro */
+}
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .search-input {
+        max-width: 350px;
+        font-size: 0.95rem;
+    }
+    
+    .filter-button {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .search-container {
+        padding: 10px 5px;
+    }
+    
+    .search-input {
+        max-width: 100%;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .filters-container {
+        gap: 8px;
+        padding: 0 5px;
+    }
+    
+    .filter-button {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        flex: 1 1 auto;
+        min-width: 80px;
+    }
 }

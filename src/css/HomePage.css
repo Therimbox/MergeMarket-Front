@@ -12,3 +12,27 @@
     margin-bottom: 40px;
     color: #333;
 }
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .homepage-container {
+        padding: 30px 15px;
+    }
+    
+    .homepage-container h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .homepage-container {
+        padding: 20px 10px;
+    }
+    
+    .homepage-container h1 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+}

@@ -40,3 +40,35 @@
 .navigation a:hover {
     color: #f0a500;
 }
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .navigation {
+        padding: 12px 3vw;
+    }
+    
+    .title h1 {
+        font-size: 1.6rem;
+    }
+    
+    .user-icon {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .navigation {
+        padding: 10px 3vw;
+    }
+    
+    .title h1 {
+        font-size: 1.4rem;
+    }
+    
+    .user-icon {
+        font-size: 22px;
+        margin-left: 8px;
+    }
+}

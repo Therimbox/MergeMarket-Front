@@ -42,3 +42,29 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .category-card {
+        flex: 1 1 calc(50% - 20px); /* 2 columnas en tablets */
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .category-container {
+        gap: 15px;
+    }
+    
+    .category-card {
+        flex: 1 1 100%; /* 1 columna en móviles */
+    }
+    
+    .category-card img {
+        height: 150px;
+    }
+    
+    .category-header h2 {
+        font-size: 1.3rem;
+    }
+}

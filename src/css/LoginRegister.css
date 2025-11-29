@@ -88,3 +88,44 @@
 .login-container p a:hover, .register-container p a:hover {
     text-decoration: underline;
 }
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .login-container, .register-container {
+        max-width: 380px;
+        padding: 25px;
+        margin: 40px auto;
+    }
+    
+    .login-container h2, .register-container h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .login-container, .register-container {
+        max-width: 90%;
+        padding: 20px;
+        margin: 30px auto;
+    }
+    
+    .login-container h2, .register-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .input-group input {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+    
+    .submit-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    
+    .input-group label {
+        font-size: 0.85rem;
+    }
+}
