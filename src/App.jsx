@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
 import Scraping from './components/Scraping';
+import PCBuilder from './components/PCBuilder';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/register" element={ <Register /> } />
           <Route path="/profile" element={ <Profile /> } />
           <Route path="/scraping" element={ <Scraping /> } />
+          <Route path="/pc-builder" element={ <PCBuilder /> } />
         </Routes>
       </div>
     </div>
