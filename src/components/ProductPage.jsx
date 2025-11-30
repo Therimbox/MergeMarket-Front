@@ -66,8 +66,32 @@ const ProductPage = () => {
         setSortOrder(order);
     };
 
+    // Filtro especial para gráficas
+    const getGraphicsFilter = () => {
+        if (categoryId !== '2') return null;
+        if (searchTerm === 'NVIDIA') {
+            return product => {
+                const name = product.name.toLowerCase();
+                return name.includes('rtx') || name.includes('gtx') || name.includes('gt') || name.includes('geforce');
+            };
+        }
+        if (searchTerm === 'AMD') {
+            return product => {
+                const name = product.name.toLowerCase();
+                return name.includes('rx') || name.includes('radeon');
+            };
+        }
+        return null;
+    };
+
     const filteredAndSortedProducts = [...products]
-        .filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .filter(product => {
+            if (categoryId === '2') {
+                const graphicsFilter = getGraphicsFilter();
+                if (graphicsFilter) return graphicsFilter(product);
+            }
+            return product.name.toLowerCase().includes(searchTerm.toLowerCase());
+        })
         .sort((a, b) => {
             if (sortOrder === 'asc') {
                 return a.price - b.price;
@@ -101,6 +125,44 @@ const ProductPage = () => {
                     Ordenar por precio: Descendente
                 </button>
             </div>
+
+            {/* Filtros específicos para la categoría 1: Procesadores */}
+            {categoryId === '1' && (
+                <div className="filters-container">
+                    <div className="row">
+                        <button className={getButtonClass(searchTerm === 'Intel')} onClick={() => handleBrandFilter('Intel')}>
+                            Intel
+                        </button>
+                        <button className={getButtonClass(searchTerm === 'AMD')} onClick={() => handleBrandFilter('AMD')}>
+                            AMD
+                        </button>
+                    </div>
+                    <div className="row">
+                        <button className="filter-button" onClick={handleClearFilter}>
+                            Limpiar filtro
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {/* Filtros específicos para la categoría 2: Tarjetas Gráficas */}
+            {categoryId === '2' && (
+                <div className="filters-container">
+                    <div className="row">
+                        <button className={getButtonClass(searchTerm === 'NVIDIA')} onClick={() => handleBrandFilter('NVIDIA')}>
+                            NVIDIA
+                        </button>
+                        <button className={getButtonClass(searchTerm === 'AMD')} onClick={() => handleBrandFilter('AMD')}>
+                            AMD
+                        </button>
+                    </div>
+                    <div className="row">
+                        <button className="filter-button" onClick={handleClearFilter}>
+                            Limpiar filtro
+                        </button>
+                    </div>
+                </div>
+            )}
 
             {/* Filtros específicos para la categoría 3: Placas Base */}
             {categoryId === '3' && (
